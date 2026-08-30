@@ -1,22 +1,47 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "tuesday"
-    open-pull-requests-limit: 1
+      interval: 'weekly'
+      day: 'monday'
+      time: '08:00'
+      timezone: 'America/Toronto'
+    target-branch: 'main'
+    rebase-strategy: 'auto'
+    versioning-strategy: 'increase'
+    open-pull-requests-limit: 10
     labels:
-      - "dependencies"
+      - 'dependencies'
     commit-message:
-      prefix: "ci"
-  - package-ecosystem: "github-actions"
-    directory: "/"
+      prefix: 'ci'
+    groups:
+      development-dependencies:
+        dependency-type: 'development'
+        update-types:
+          - 'minor'
+          - 'patch'
+      production-dependencies:
+        dependency-type: 'production'
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 1
+      interval: 'weekly'
+      day: 'monday'
+      time: '08:00'
+      timezone: 'America/Toronto'
+    target-branch: 'main'
+    rebase-strategy: 'auto'
+    open-pull-requests-limit: 10
     labels:
-      - "dependencies"
+      - 'dependencies'
     commit-message:
-      prefix: "ci"
+      prefix: 'ci'
+    groups:
+      github-actions:
+        patterns:
+          - '*'
