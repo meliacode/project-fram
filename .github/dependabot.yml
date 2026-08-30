@@ -11,6 +11,11 @@ updates:
     rebase-strategy: 'auto'
     versioning-strategy: 'increase'
     open-pull-requests-limit: 10
+    allow:
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-minor'
+          - 'version-update:semver-patch'
     labels:
       - 'dependencies'
     commit-message:
