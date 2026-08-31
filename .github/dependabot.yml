@@ -16,8 +16,6 @@ updates:
         update-types:
           - 'version-update:semver-minor'
           - 'version-update:semver-patch'
-    labels:
-      - 'dependencies'
     commit-message:
       prefix: 'ci'
     groups:
@@ -42,8 +40,6 @@ updates:
     target-branch: 'main'
     rebase-strategy: 'auto'
     open-pull-requests-limit: 10
-    labels:
-      - 'dependencies'
     commit-message:
       prefix: 'ci'
     groups:
